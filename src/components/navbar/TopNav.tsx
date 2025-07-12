@@ -12,7 +12,7 @@ export default async function TopNav() {
   return (
     <Navbar
       maxWidth="xl"
-      className="bg-gradient-to-r from-purple-400 to-purple-700"
+      className="bg-gradient-to-r from-primary to-secondary"
       classNames={{
         item: [
           "text-xl",

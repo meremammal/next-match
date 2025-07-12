@@ -10,6 +10,10 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: "#851",
+        secondary: "#693"
+      },
       backgroundImage: {
         "dark-gradient":
           "linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent)",
