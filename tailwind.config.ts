@@ -11,8 +11,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#851",
-        secondary: "#693"
+        primary: "#069",
+        secondary: "#38e"
       },
       backgroundImage: {
         "dark-gradient":

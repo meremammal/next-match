@@ -1,5 +1,6 @@
 "use client";
 import { signOutUser } from "@/app/actions/authActions";
+import { transformImageUrl } from '@/lib/util';
 import {
   Avatar,
   Dropdown,
@@ -8,14 +9,15 @@ import {
   DropdownSection,
   DropdownTrigger,
 } from "@heroui/react";
-import { Session } from "next-auth";
+import { Member } from '@prisma/client';
 import Link from "next/link";
 
 type Props = {
-  user: Session["user"];
+  member: Member;
 };
 
-export default function UserMenu({ user }: Props) {
+
+export default function UserMenu({ member }: Props) {
   return (
     <Dropdown placement="bottom-end">
       <DropdownTrigger>
@@ -24,9 +26,9 @@ export default function UserMenu({ user }: Props) {
           as="button"
           className="transition-transform"
           color="secondary"
-          name={user?.name || "user avatar"}
+          name={member?.name || "user avatar"}
           size="sm"
-          src={user?.image || "/images/user.png"}
+          src={transformImageUrl(member?.image) || "/images/user.png"}
         />
       </DropdownTrigger>
       <DropdownMenu variant="flat" aria-label="User actions menu">
@@ -38,7 +40,7 @@ export default function UserMenu({ user }: Props) {
             className="h-14 flex flex-row"
             aria-label="username"
           >
-            Signed in as {user?.name}
+            Signed in as {member?.name}
           </DropdownItem>
         </DropdownSection>
         <DropdownItem key="editProfile" as={Link} href="/members/edit">
